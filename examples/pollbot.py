@@ -123,7 +123,7 @@ async def receive_quiz_answer(update: Update, context: ContextTypes.DEFAULT_TYPE
     # the bot can receive closed poll updates we don't care about
     if update.poll.is_closed:
         return
-    if update.poll.total_voter_count == 3:
+    if update.poll.total_voter_count == 5:
         try:
             quiz_data = context.bot_data[update.poll.id]
         # this means this poll answer update is from an old poll, we can't stop it then
@@ -158,7 +158,7 @@ async def receive_poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 async def help_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Display a help message"""
+    """Display a help message For Bot"""
     await update.message.reply_text("Use /quiz, /poll or /preview to test this bot.")
 
 
